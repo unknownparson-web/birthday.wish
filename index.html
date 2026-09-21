@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Surprise ❤️</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#100013;
+    color:white;
+    overflow-x:hidden;
+}
+
+.page{
+    min-height:100vh;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:30px 18px;
+    position:relative;
+}
+
+.page.active{
+    display:flex;
+}
+
+.bg{
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%,#71194f 0,transparent 35%),
+    radial-gradient(circle at 80% 80%,#32106b 0,transparent 38%),
+    linear-gradient(135deg,#100013,#25001f);
+    z-index:-2;
+}
+
+.stars{
+    position:absolute;
+    inset:0;
+    background-image:
+    radial-gradient(#fff 1px,transparent 1px);
+    background-size:45px 45px;
+    opacity:.12;
+    z-index:-1;
+}
+
+.card{
+    width:min(900px,94vw);
+    text-align:center;
+    padding:45px 25px;
+    border:1px solid #ffffff30;
+    border-radius:32px;
+    background:#ffffff0e;
+    backdrop-filter:blur(12px);
+    box-shadow:0 25px 90px #0008;
+}
+
+.num{
+    font-size:13px;
+    letter-spacing:3px;
+    color:#eab2cb;
+}
+
+h1{
+    font-size:clamp(45px,10vw,100px);
+    margin:18px 0 5px;
+    background:linear-gradient(90deg,#fff,#ff9fc9,#fff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+h2{
+    font-size:clamp(28px,6vw,55px);
+    color:#ffb5d2;
+    margin:8px 0 22px;
+}
+
+p{
+    font-size:19px;
+    line-height:1.9;
+    color:#ffeaf3;
+    max-width:680px;
+    margin:18px auto;
+}
+
+.btn{
+    border:0;
+    padding:14px 25px;
+    border-radius:999px;
+    background:linear-gradient(90deg,#ff4f9a,#9d5cff);
+    color:white;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow:0 10px 30px #ff4f9a44;
+    margin:8px;
+}
+
+.btn:hover{
+    transform:translateY(-2px) scale(1.03);
+}
+
+.quote{
+    font-size:25px;
+    font-style:italic;
+    color:#fff0f7;
+}
+
+.bigheart{
+    font-size:90px;
+    animation:pulse 1.3s infinite;
+}
+
+.name{
+    font-size:clamp(25px,5vw,44px);
+    background:linear-gradient(90deg,#ffd1e5,#fff,#ff8fbe);
+    -webkit-background-clip:text;
+    color:transparent;
+    text-shadow:0 0 25px #ff5ba455;
+    margin:12px 0 22px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin:25px auto;
+    max-width:650px;
+}
+
+.photo{
+    height:180px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#ff77aa,#663399);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+    box-shadow:0 10px 30px #0005;
+}
+
+.timeline{
+    max-width:650px;
+    margin:auto;
+    text-align:left;
+}
+
+.item{
+    padding:18px 20px;
+    margin:14px 0;
+    border-left:3px solid #ff65a6;
+    background:#ffffff0a;
+    border-radius:0 18px 18px 0;
+}
+
+.item b{
+    color:#ffb4d1;
+}
+
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+    height:4px;
+    background:#ff5ba4;
+    z-index:99;
+    width:0;
+    transition:.4s;
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.12);
+    }
+}
+
+@media(max-width:650px){
+
+    .gallery{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .photo{
+        height:130px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- STEP 1 -->
+<section class="page active" id="p1">
+
+<div class="bg"></div>
+<div class="stars"></div>
+
+<div class="card">
+
+<div class="num">
+STEP 01 • THE BEGINNING
+</div>
+
+<div class="bigheart">
+❤️
+</div>
+
+<h1>
+Hey, You...
+</h1>
+
+<p>
+আজ তোমার জন্য একটা ছোট্ট surprise আছে।
+কিন্তু এটা একবারে দেখা যাবে না...
+ধীরে ধীরে unlock করতে হবে। ✨
+</p>
+
+<button class="btn" onclick="go(2)">
+Open the surprise →
+</button>
+
+</div>
+</section>
+
+
+<!-- STEP 2 -->
+<section class="page" id="p2">
+
+<div class="bg"></div>
+<div class="stars"></div>
+
+<div class="card">
+
+<div class="num">
+STEP 02 • SPECIAL DAY
+</div>
+
+<h2>
+আজকের দিনটা আলাদা 🎀
+</h2>
+
+<p class="quote">
+“কিছু মানুষ জীবনে আসে,
+আর সাধারণ দিনগুলোকে সুন্দর স্মৃতিতে বদলে দেয়।”
+</p>
+
+<p>
+আজকের দিনটা তোমার জন্য—
+তাই একটু হাসি, একটু আনন্দ
+আর অনেক অনেক শুভকামনা জমা করে রেখেছি।
+</p>
+
+<button class="btn" onclick="go(3)">
+Next surprise 💌
+</button>
+
+</div>
+</section>
+
+
+<!-- STEP 3 -->
+<section class="page" id="p3">
+
+<div class="bg"></div>
+<div class="stars"></div>
+
+<div class="card">
+
+<div class="num">
+STEP 03 • A LITTLE GALLERY
+</div>
+
+<h2>
+আমাদের ছোট্ট জগত 🌸
+</h2>
+
+<p>
+এখানে তোমাদের নিজের ছবি বসাতে পারবে।
+নিচের জায়গাগুলোতে পরে ছবি যোগ করে নিলেই হবে।
+</p>
+
+<div class="gallery">
+
+<div class="photo">📸</div>
+<div class="photo">💗</div>
+<div class="photo">✨</div>
+<div class="photo">🌸</div>
+<div class="photo">🥰</div>
+<div class="photo">🎀</div>
+
+</div>
+
+<button class="btn" onclick="go(4)">
+আরও একটু এগিয়ে →
+</button>
+
+</div>
+</section>
+
+
+<!-- STEP 4 -->
+<section class="page" id="p4">
+
+<div class="bg"></div>
+<div class="stars"></div>
+
+<div class="card">
+
+<div class="num">
+STEP 04 • LITTLE MEMORIES
+</div>
+
+<h2>
+কিছু মুহূর্ত ✨
+</h2>
+
+<div class="timeline">
+
+<div class="item">
+<b>🌱 The Beginning</b>
+<br>
+যেখান থেকে গল্পটা শুরু হয়েছিল।
+</div>
+
+<div class="item">
+<b>🌷 The Smiles</b>
+<br>
+ছোট ছোট কথায় তৈরি হওয়া সুন্দর মুহূর্তগুলো।
+</div>
+
+<div class="item">
+<b>🌙 The Late Nights</b>
+<br>
+ঘুমের চেয়ে গল্প বেশি গুরুত্বপূর্ণ হয়ে যাওয়া।
+</div>
+
+<div class="item">
+<b>💫 Today</b>
+<br>
+আজকের এই special birthday surprise.
+</div>
+
+</div>
+
+<button class="btn" onclick="go(5)">
+Final surprise 🔐
+</button>
+
+</div>
+</section>
+
+
+<!-- STEP 5 -->
+<section class="page" id="p5">
+
+<div class="bg"></div>
+<div class="stars"></div>
+
+<div class="card">
+
+<div class="num">
+STEP 05 • FINAL LETTER
+</div>
+
+<h2>
+একটা কথা বলি? 💌
+</h2>
+
+<p>
+তোমার জন্মদিনে শুধু
+“Happy Birthday” বললেই যেন কম হয়ে যায়।
+তাই এই ছোট্ট website-টা বানানো—
+যাতে তোমার special day-টা
+একটু আলাদা করে celebrate করা যায়।
+</p>
+
+<p>
+তোমার সামনে যেন অনেক সুন্দর দিন আসে,
+তোমার ইচ্ছেগুলো পূরণ হয়,
+আর প্রতিটা নতুন বছর
+আগেরটার চেয়ে আরও সুন্দর হয়। ❤️
+</p>
+
+<button class="btn" onclick="go(6);celebrate()">
+শেষ দরজাটা খোলো ❤️
+</button>
+
+</div>
+</section>
+
+
+<!-- FINAL -->
+<section class="page" id="p6">
+
+<div class="bg"></div>
+<div class="stars"></div>
+
+<div class="card">
+
+<div class="bigheart">
+🎂
+</div>
+
+<div class="num">
+THE FINAL SURPRISE
+</div>
+
+<h1>
+Happy Birthday!
+</h1>
+
+<h2 class="name">
+My Jan Setu ❤️
+</h2>
+
+<h2>
+তোমার দিনটা সুন্দর হোক ❤️
+</h2>
+
+<p>
+অনেক হাসি, অনেক আনন্দ,
+আর অনেক সুন্দর স্মৃতি নিয়ে
+তোমার নতুন বছরটা শুরু হোক।
+</p>
+
+<p class="quote">
+“আজকের দিনটা তোমার—
+শুধু তোমার জন্য।” ❤️
+</p>
+
+<button class="btn" onclick="go(1)">
+↻ আবার শুরু করো
+</button>
+
+</div>
+</section>
+
+
+<script>
+
+let current = 1;
+
+function go(n){
+
+    document
+    .getElementById("p"+current)
+    .classList
+    .remove("active");
+
+    current = n;
+
+    document
+    .getElementById("p"+current)
+    .classList
+    .add("active");
+
+    document
+    .getElementById("progress")
+    .style.width =
+    ((n-1)/5*100)+"%";
+
+    window.scrollTo(0,0);
+}
+
+
+function celebrate(){
+
+    for(let i=0;i<140;i++){
+
+        const e=document.createElement("div");
+
+        e.textContent=
+        ["❤️","💗","✨","🎉","🌸"]
+        [Math.floor(Math.random()*5)];
+
+        e.style.position="fixed";
+        e.style.left=Math.random()*100+"vw";
+        e.style.top="-20px";
+        e.style.fontSize=
+        (14+Math.random()*25)+"px";
+
+        e.style.zIndex=100;
+
+        document.body.appendChild(e);
+
+        const x=(Math.random()-.5)*300;
+
+        const d=1800+Math.random()*2500;
+
+        e.animate(
+
+            [
+                {
+                    transform:"translate(0,0) rotate(0deg)",
+                    opacity:1
+                },
+
+                {
+                    transform:
+                    `translate(${x}px,110vh) rotate(720deg)`,
+                    opacity:0
+                }
+            ],
+
+            {
+                duration:d,
+                easing:"ease-in"
+            }
+
+        ).onfinish=()=>e.remove();
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
